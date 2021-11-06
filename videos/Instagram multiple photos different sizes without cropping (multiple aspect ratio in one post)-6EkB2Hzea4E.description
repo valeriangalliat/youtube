@@ -1,0 +1,27 @@
+Facebook Creator Studio for Instagram: https://business.facebook.com/creatorstudio/?tab=instagram_content_posts
+Text version of this video: https://www.codejam.info/2021/01/instagram-album-with-multiple-aspect-ratios.html
+Update about this technique (recommend watching): https://youtu.be/TSm5YOBxKZ0
+
+Warning: this seems to only work on the Android app and web version of Instagram, but the iOS app appears to further crop all the images to the same ratio even when published and stored with different aspect ratios, so it's something to keep in mind. 
+
+Note: this does not work for private accounts, since you need to have a "creator" or "business" profile to use Creator Studio, and those require the account to be public.
+
+Today I'm gonna share with you a tip to post multiple photos with different aspect ratios (e.g. square, portrait, landscape) in the same Instagram post!
+
+For the past while, my friend Jimmy have been posting albums on Instagram (posts with multiple pictures) where some pictures have different aspect ratios. Recently, I tried to do the same thing, and I realized the app wouldn't let me do it.
+
+By default your pictures are cropped as a square. You can click the "expand" button to have it in portrait or landscape mode, but if you create a gallery from this, all the pictures you add will then be cropped to the initial aspect ratio. Meaning that if your first picture is a landscape and you then want to add a square, your square will be cropped even more to fit in a landscape frame.
+
+It turns out to be able to use this "secret" feature, you have to use Facebook Creator Studio to post your pictures, instead of using the app or the website.
+
+This tools allows you to post both on Facebook and Instagram at the same time, or easily repost one of your Facebook posts to Instagram. But it also lets you post just to Instagram, and when you do so, you have more freedom over the crop and aspect ratio.
+
+When you first log into the tool, you will be required to connect your Instagram account to a Facebook page. If you don't have a Facebook page yet, just create one, that you can mark as unpublished if you don't want it to be public, and it will still let you link it and use the tool.
+
+Once connected, you can go in the Instagram section of Facebook Creator Studio and directly create new Instagram posts from there. The UI lets you select a different crop / aspect ratio for each of the pictures you upload, so that when you post it, they will all show up in their own native aspect ratio on the app. Enjoy!
+
+Also, checkout:
+
+Jimmy's Instagram: https://www.instagram.com/lefrancois_jimmy/
+My Instagram: https://www.instagram.com/funkyval_/
+My ice buckets Instagram: https://www.instagram.com/leseaufrere/

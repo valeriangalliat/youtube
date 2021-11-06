@@ -1,0 +1,13 @@
+Logic's documentation: https://support.apple.com/en-ca/guide/logicpro/lgcp0155c51f/mac
+Blog post: https://www.codejam.info/2021/02/control-midi-instruments-keyboard-knobs-logic-pro.html
+
+Maybe like me you want to assign your keyboard knobs to virtual instrument controls in Logic Pro, like cutoff, resonance, attach, release and so on. The way to do that is not really intuitive and it took me a while to find out about it, so that's why I'm making this video to show this simple tip!
+
+By going opening the inspector from the smart controls panel, you have a feature to learn external assignments, which lets you select a virtual instrument control, then move the physical knob you want to assign it to to identify it!
+
+I hope this tip was useful to you, cheers!
+
+Keyboard: Korg microKORG S (as MIDI controller)
+Interface: Steinberg UR22mkII
+Video: Panasonic LUMIX DMC-LX100K & GoPro HERO (2018)
+Mic: Zoom H2n

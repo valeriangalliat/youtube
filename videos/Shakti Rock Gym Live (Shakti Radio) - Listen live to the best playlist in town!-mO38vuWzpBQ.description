@@ -1,0 +1,20 @@
+Spotify playlist: https://open.spotify.com/playlist/5qgFzOvllbtIehVfd66SZG
+YouTube playlist: https://www.youtube.com/playlist?list=PL3gQ6-WYh7kX1CARbXnNuP4kgnG0E5Guu
+
+Shakti is a climbing gym in the Mile End neighborhood of Montreal. I climb there. A lot.
+
+I instantly got hooked by the music when I started climbing there 4 years ago. Whenever I was going, I remember telling my friends "oh man I love this song" multiple times per session. If I didn't know the song, I was hanging next to the phone playing the music to see what it was and add it to my own playlists!
+
+One of my dreams for a while now have been to be able to tune up to what's playing inside the gym when I'm not there, like when I'm working or I have friends over and I don't have much inspiration on what to play, I wished I could just get an instant Shakti vibe because I know it's always gonna be dope.
+
+Turns out the music is played in the gym through a single Spotify account, and if you follow it, the "friend activity" feed on the desktop app shows you what's playing there live! But you need to manually go there every song to get the next song which is unusable for what I wanted.
+
+So I scripted it, and I have that script append to a Spotify playlist in real time with the Shakti activity feed. This allows you, if you play the last song in the playlist (or maybe the one before to give a bit of a buffer), to have the live Shakti vibe wherever you are!
+
+And since I'm more of a YouTube person, I made a mirror playlist on YouTube as well.
+
+The playlist is reset every morning so that it doesn't grow indefinitely.
+
+And if you're like me and when you get back home after your climbing session and you're wondering  what was that sick beat that dropped at 1:37 pm, now you can go to the playlist, and based on the "date added" field, you should get a good idea of what song it was.
+
+Enjoy!
