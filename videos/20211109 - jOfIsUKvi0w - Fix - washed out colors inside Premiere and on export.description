@@ -1,0 +1,41 @@
+► Register for the full course about Premiere for sRGB screens!
+👉  https://forms.gle/qk6C2q8A23kyrYyw7 👈
+
+This has been bugging me for so long, and I'm so glad I finally have a fix and some kind of explanation to bring for both of those problems.
+
+If a still picture is looking washed out in Premiere compared to literally everywhere else (Preview, Lightroom, Photoshop, web browsers), that's because it's got an embedded color profile (more likely sRGB), and because Premiere is color managed in Rec. 709, it transforms it so that the picture looks appropriate when viewed on a Rec. 709 monitor (e.g. a TV). If you're delivering for TV broadcast, you should actually make sure that all your sRGB pictures have an embedded color profile so that Premiere can transform them to make them look consistent when viewed on TVs! But if you're delivering for sRGB screens (desktops, laptops, phones), use the fix I show in this video to make sure that the pictures keep looking the way they do in Preview, Lightroom and everywhere else!
+
+Also, on macOS, if your video (source or export) looks different in Premiere than it does in QuickTime and other applications managed by ColorSync like most web browsers, that's because ColorSync uses a gamma of 1.96 whereas everything else on computers and phones uses a gamma of 2.2. You can't fix it, so learn to accept it, knowing that the pixels inside the video file are actually fine and everything is displayed consistently between Windows, Linux, Android and iOS.
+
+If you deliver your content to be viewed only on macOS applications managed by ColorSync, feel free to burn in the opposite transformation that ColorSync does by adding a ASC CDL effect in Premiere with red, green and blue power value of 1.12245 (2.2 / 1.96 ≈ 1.12245).
+
+Otherwise if you deliver your content for Rec. 709 TV broadcast (gamma of 2.4 and not 2.2 like computers and phones), and you want to mimic that look inside QuickTime, you can use Adobe's compensation LUT: https://assets.adobe.com/public/a0b635a3-6bc3-452b-5f7d-c997b9b36cf5
+
+More details in this article: https://dominey.blog/2021/01/24/why-are-videos-washed-out-on-the-mac-exploring-quicktime-gamma-shift/
+
+0:00 Intro
+0:58 Issue with still pictures
+4:45 Issue with QuickTime
+
+📸 Gear I used in this video
+▔▔▔▔▔▔▔▔▔▔▔▔
+
+► All my gear: https://www.codejam.info/gear.html
+
+Video: Panasonic LUMIX DMC-LX100K
+Audio: Zoom H2n
+
+🐨 Who is FunkyVal?
+▔▔▔▔▔▔▔▔▔
+
+I'm a bassist, guitarist, photographer, videographer, brewer, as well as a programmer. Yeah, I know, I'm all over the place.
+
+I share on this channel everything that I think could be useful to anyone, or otherwise entertaining or interesting. I don't put any limits on the topics I'll publish about. You can consider this to be a "secondary channel" even though I don't have a "main channel" per se, so don't be surprised if you subscribe! 😜
+
+🤙 Keep in touch!
+▔▔▔▔▔▔▔▔
+
+🌈 Instagram: https://www.instagram.com/funkyval_/
+🐦 Twitter: https://twitter.com/valeriangalliat
+✍️ Blog: https://www.codejam.info/
+📸 Photography: https://photography.codejam.info/
