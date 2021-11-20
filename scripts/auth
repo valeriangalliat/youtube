@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+const { google } = require('googleapis')
+const readline = require('readline')
+const fs = require('fs').promises
+const config = require('./config')
+
+const oauth2Client = new google.auth.OAuth2(config.clientId, config.clientSecret, 'urn:ietf:wg:oauth:2.0:oob')
+
+async function main () {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+
+  const authUrl = oauth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: ['https://www.googleapis.com/auth/youtube']
+  })
+
+  console.log('Authorize this app by visiting this URL: ', authUrl)
+  const code = await new Promise(resolve => rl.question('Enter the code from that page here: ', resolve))
+  rl.close()
+
+  const token = await new Promise((resolve, reject) => {
+    oauth2Client.getToken(code, (err, token) => {
+      if (err) {
+        return reject(err)
+      }
+
+      resolve(token)
+    })
+  })
+
+  await fs.writeFile(`${__dirname}/state.json`, JSON.stringify({ token }, null, 2))
+}
+
+main()
+  .catch(err => {
+    console.error(err.stack || err)
+    process.exit(1)
+  })

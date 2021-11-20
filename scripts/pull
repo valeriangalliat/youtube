@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+const fs = require('fs').promises
+const youtube = require('./youtube').asApi()
+
+const playlistId = 'UUzpErreSO-Fv2oY5t-YXvRw'
+
+async function dumpVideo (snippet) {
+  const date = snippet.publishedAt.split('T')[0].replaceAll('-', '')
+  const id = snippet.resourceId.videoId
+  const title = snippet.title.replaceAll(/: ?/g, ' - ')
+  const path = `${date} - ${id} - ${title}.description`
+
+  console.log(path)
+
+  await fs.writeFile(`${__dirname}/../videos/${path}`, snippet.description + '\n')
+}
+
+async function main () {
+  // Ignore videos older than this.
+  const dateAfter = new Date('2018-01-01')
+
+  let pageToken
+
+  pagination:
+  while (true) {
+    const { data: uploads } = await youtube.call('playlistItems', 'list', {
+      playlistId,
+      part: 'snippet',
+      maxResults: 50,
+      pageToken
+    })
+
+    for (const item of uploads.items) {
+      if (new Date(item.snippet.publishedAt).getTime() < dateAfter) {
+        break pagination
+      }
+
+      await dumpVideo(item.snippet)
+    }
+
+    if (!uploads.nextPageToken) {
+      break
+    }
+
+    pageToken = uploads.nextPageToken
+  }
+}
+
+main()
+  .catch(err => {
+    console.error(err.stack || err)
+    process.exit(1)
+  })

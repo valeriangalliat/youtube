@@ -1,0 +1,79 @@
+#!/usr/bin/env node
+
+const readline = require('readline')
+const fs = require('fs').promises
+const youtube = require('./youtube').asUser()
+
+async function main () {
+  const ids = process.argv.slice(2)
+  const videos = await fs.readdir(`${__dirname}/../videos`)
+  const videosById = {}
+
+  for (const path of videos) {
+    const id = path.split(' - ')[1]
+    videosById[id] = path
+  }
+
+  const modified = ids.map(id => videosById[id]).filter(path => path)
+
+  if (!modified.length) {
+    console.log('No video found')
+    process.exit(1)
+  }
+
+  console.log('The following videos will be updated:')
+  console.log()
+
+  for (const path of modified) {
+    console.log(path)
+  }
+
+  console.log()
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+
+  const response = await new Promise(resolve => rl.question('Continue? (y/n) ', resolve))
+
+  rl.close()
+
+  if (response.toLowerCase() !== 'y') {
+    console.log('Aborting')
+    process.exit(1)
+  }
+
+  for (const path of modified) {
+    const id = path.split(' - ')[1]
+
+    const { data: video } = await youtube.call('videos', 'list', {
+      fields: 'items/snippet/title,items/snippet/categoryId',
+      part: 'snippet',
+      id
+    })
+
+    const { title, categoryId } = video.items[0].snippet
+    const description = await fs.readFile(`${__dirname}/../videos/${path}`, 'utf8')
+
+    console.log(id)
+
+    await youtube.call('videos', 'update', {
+      part: 'snippet',
+      requestBody: {
+        id,
+        snippet: {
+          title,
+          categoryId,
+          description
+        }
+      }
+    })
+  }
+}
+
+main()
+  .catch(err => {
+    console.error(err.stack || err)
+    process.exit(1)
+  })
