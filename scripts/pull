@@ -1,22 +1,43 @@
 #!/usr/bin/env node
 
 const fs = require('fs').promises
+const path = require('path')
 const youtube = require('./youtube').asApi()
 
 const playlistId = 'UUzpErreSO-Fv2oY5t-YXvRw'
+const videoDirectory = path.join(__dirname, '../videos')
+
+const existing = {}
+
+async function populateExisting () {
+  const entries = await fs.readdir(videoDirectory)
+
+  for (const path of entries) {
+    const id = path.split(' - ')[1]
+    existing[id] = path
+  }
+}
 
 async function dumpVideo (snippet) {
   const date = snippet.publishedAt.split('T')[0].replaceAll('-', '')
   const id = snippet.resourceId.videoId
   const title = snippet.title.replaceAll(/: ?/g, ' - ')
-  const path = `${date} - ${id} - ${title}.description`
+  const file = `${date} - ${id} - ${title}.description`
 
-  console.log(path)
+  console.log(file)
 
-  await fs.writeFile(`${__dirname}/../videos/${path}`, snippet.description + '\n')
+  const fullPath = path.join(videoDirectory, file)
+
+  if (existing[id]) {
+    await fs.rename(path.join(videoDirectory, existing[id]), fullPath)
+  }
+
+  await fs.writeFile(fullPath, snippet.description + '\n')
 }
 
 async function main () {
+  await populateExisting()
+
   // Ignore videos older than this.
   const dateAfter = new Date('2018-01-01')
 
