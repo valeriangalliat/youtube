@@ -1,6 +1,6 @@
 # ⚙️ YouTube scripts
 
-> Scripts for my channel [FunkyVal](https://www.youtube.com/FunkyVal).
+> Scripts for my [YouTube channel](https://www.youtube.com/FunkyVal).
 
 ## Installation
 
@@ -15,6 +15,8 @@ cat > config.json << EOF
   "clientSecret": ""
 }
 EOF
+
+make auth
 ```
 
 ## Usage
