@@ -2,6 +2,16 @@
 
 > Scripts for my [YouTube channel](https://www.youtube.com/FunkyVal).
 
+## Overview
+
+I use those scripts to keep a local copy of all my YouTube video
+descriptions. They're pulled from the YouTube API with `make pull` and
+you can edit them in place (using Vim, sed, etc.) and push the updated
+descriptions using `make push`.
+
+This is especially convenient to mass update descriptions, e.g. the
+short intro I write in there or some of the recurring links.
+
 ## Installation
 
 ```sh
@@ -37,6 +47,19 @@ make push
 ```
 
 You can commit them after.
+
+## Example
+
+```sh
+# Replace some text by a link
+sed -i 's,Example,https://example.com/,;s,Something,https://example.com,' videos/*.description
+
+# Prepend some text with other text
+sed -i 's,🌈 Instagram,☕ Buy me a coffee! https://ko-fi.com/funkyval\n🌈 Instagram,' videos/*.description
+
+# Delete a line that starts with some text as well as the next line
+sed -i '/^Some text/,+1d' videos/*.description
+```
 
 ## Known issues
 
